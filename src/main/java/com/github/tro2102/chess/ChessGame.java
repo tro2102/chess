@@ -1,3 +1,5 @@
+package com.github.tro2102.chess;
+
 import java.util.Scanner;
 
 

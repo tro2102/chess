@@ -16,3 +16,6 @@ hs_err_pid*
 
 # Gradle files
 bin/
+target/
+.idea/
+.gradle/
