@@ -21,14 +21,14 @@ public class Board {
 		for (int i = 0; i < 2; i++)
 		{
 			int row = i*7;
-			mainBoard[row][0] = new Rook(i);
-			mainBoard[row][7] = new Rook(i);
-			mainBoard[row][1] = new Knight(i);
-			mainBoard[row][6] = new Knight(i);
-			mainBoard[row][2] = new Bishop(i);
-			mainBoard[row][5] = new Bishop(i);
-			mainBoard[row][3] = new Queen(i);
-			mainBoard[row][4] = new King(i);
+			mainBoard[row][0] = new Rook(Team.values()[i]);
+			mainBoard[row][7] = new Rook(Team.values()[i]);
+			mainBoard[row][1] = new Knight(Team.values()[i]);
+			mainBoard[row][6] = new Knight(Team.values()[i]);
+			mainBoard[row][2] = new Bishop(Team.values()[i]);
+			mainBoard[row][5] = new Bishop(Team.values()[i]);
+			mainBoard[row][3] = new Queen(Team.values()[i]);
+			mainBoard[row][4] = new King(Team.values()[i]);
 		}
 		//populate pawns
 		for (int j = 0; j <= 7; j++)
@@ -48,7 +48,7 @@ public class Board {
 			System.out.print(i+"|");
 			for (int j = 0; j < 8; j++)
 			{
-				System.out.print("" + mainBoard[i][j].toString() + "|");
+				System.out.print("" + (mainBoard[i][j] != null ? mainBoard[i][j].toString() : "      ") + "|");
 			}
 			System.out.print("\n");
 		}
