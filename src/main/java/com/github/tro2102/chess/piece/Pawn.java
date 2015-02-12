@@ -1,11 +1,16 @@
 package com.github.tro2102.chess.piece;
 
-import com.github.tro2102.chess.Team;
+import com.github.tro2102.chess.Color;
 
 public class Pawn extends Piece {
 
-    public Pawn(Team t) {
+    public Pawn(Color t) {
         super(t);
+    }
+
+    @Override
+    public boolean getMoveType() {
+        return true;
     }
 
     @Override

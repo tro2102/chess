@@ -1,45 +1,27 @@
 package com.github.tro2102.chess.piece;
 
-import com.github.tro2102.chess.Team;
+import com.github.tro2102.chess.Color;
+import com.github.tro2102.chess.Position;
 
 public abstract class Piece {
 
-	private Team team;
-	private boolean moveIsStraight;
+	private Color color;
+    private Position position;
 	
-	// A proper piece cannot get instantiated without a
-	// starting position and a team
-	public Piece(Team t)
+	// A proper piece cannot get instantiated without a team
+	public Piece(Color t)
 	{
-		team = t;
-		moveIsStraight = true;
+		color = t;
 	}
 
 	/*--------GETTERS-------*/
-	public Team getTeam()
+	public Color getColor()
 	{
-		return team;
+		return color;
 	}
-	public boolean getMoveType()
-	{
-		return moveIsStraight;
-	}
-	
-	/*--------SETTERS-------*/
-	public void setTeam(Team t)
-	{
-		team = t;
-	}
-	public void setMoveType(boolean straight)
-	{
-		moveIsStraight = straight;
-	}
+	public abstract boolean getMoveType();
 
-    /*-----TO IMPLEMENT-----*/
-    protected abstract boolean isValidForPiece(int x1, int y1, int x2, int y2);
-    protected abstract String getStringRepresentation();
-
-    /*---------UTILITY------*/
+    /*---------MOVEMENT------*/
     public final boolean isValidMove(int x1, int y1, int x2, int y2) {
         return isWithinBounds(x2, y2) && isValidForPiece(x1, y1, x2, y2);
     }
@@ -48,9 +30,12 @@ public abstract class Piece {
 		//Check if goal is within board bounds
         return x2 > -1 && x2 < 8 && y2 > -1 && y2 < 8;
     }
-	
+    protected abstract boolean isValidForPiece(int x1, int y1, int x2, int y2);
+
+    /*---------DISPLAY--------*/
+    protected abstract String getStringRepresentation();
 	public final String toString()
 	{
-		return getStringRepresentation() + getTeam();
+		return getStringRepresentation() + getColor();
 	}
 }

@@ -1,14 +1,18 @@
 package com.github.tro2102.chess.piece;
 
-import com.github.tro2102.chess.Team;
+import com.github.tro2102.chess.Color;
 
 public class Rook extends Piece {
 
-	// Use same 
-	public Rook(Team t)
+	public Rook(Color t)
 	{
 		super(t);
 	}
+
+    @Override
+    public boolean getMoveType() {
+        return true;
+    }
 
     @Override
     protected boolean isValidForPiece(int x1, int y1, int x2, int y2) {

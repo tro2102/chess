@@ -2,8 +2,19 @@ package com.github.tro2102.chess;
 
 import java.util.Scanner;
 
-
 public class ChessGame {
+
+    private PieceBox pieceBox;
+    private Player player1;
+    private Player player2;
+    private Board board;
+
+    public ChessGame() {
+        pieceBox = new PieceBox();
+        board = new Board(8,8);
+        player1 = new Player(pieceBox.getPieces(Color.BLACK));
+        player2 = new Player(pieceBox.getPieces(Color.WHITE));
+    }
 
 	public static void main(String args[])
 	{

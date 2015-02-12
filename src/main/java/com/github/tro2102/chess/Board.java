@@ -21,20 +21,20 @@ public class Board {
 		for (int i = 0; i < 2; i++)
 		{
 			int row = i*7;
-			mainBoard[row][0] = new Rook(Team.values()[i]);
-			mainBoard[row][7] = new Rook(Team.values()[i]);
-			mainBoard[row][1] = new Knight(Team.values()[i]);
-			mainBoard[row][6] = new Knight(Team.values()[i]);
-			mainBoard[row][2] = new Bishop(Team.values()[i]);
-			mainBoard[row][5] = new Bishop(Team.values()[i]);
-			mainBoard[row][3] = new Queen(Team.values()[i]);
-			mainBoard[row][4] = new King(Team.values()[i]);
+			mainBoard[row][0] = new Rook(Color.values()[i]);
+			mainBoard[row][7] = new Rook(Color.values()[i]);
+			mainBoard[row][1] = new Knight(Color.values()[i]);
+			mainBoard[row][6] = new Knight(Color.values()[i]);
+			mainBoard[row][2] = new Bishop(Color.values()[i]);
+			mainBoard[row][5] = new Bishop(Color.values()[i]);
+			mainBoard[row][3] = new Queen(Color.values()[i]);
+			mainBoard[row][4] = new King(Color.values()[i]);
 		}
 		//populate pawns
 		for (int j = 0; j <= 7; j++)
 		{
-			mainBoard[1][j] = new Pawn(Team.WHITE);
-			mainBoard[6][j] = new Pawn(Team.BLACK);
+			mainBoard[1][j] = new Pawn(Color.WHITE);
+			mainBoard[6][j] = new Pawn(Color.BLACK);
 		}
 	}
 	
@@ -61,7 +61,7 @@ public class Board {
 		{
 			if (this.isValidMove(x1, y1, x2, y2))
 			{
-				if (mainBoard[x1][y1].getTeam() == mainBoard[x2][y2].getTeam())
+				if (mainBoard[x1][y1].getColor() == mainBoard[x2][y2].getColor())
 				{
 					System.out.println("That space is already occupied by your own team.");
 				}

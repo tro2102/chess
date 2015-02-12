@@ -1,15 +1,19 @@
 package com.github.tro2102.chess.piece;
 
-import com.github.tro2102.chess.Team;
+import com.github.tro2102.chess.Color;
 
 public class Knight extends Piece {
 
 	// Use super 
-	public Knight(Team t)
+	public Knight(Color t)
 	{
 		super(t);
-		this.setMoveType(false);
 	}
+
+    @Override
+    public boolean getMoveType() {
+        return false;
+    }
 
     @Override
     protected boolean isValidForPiece(int x1, int y1, int x2, int y2) {
